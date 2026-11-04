@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>MATHS AI LK | Grade 10 Sinhala Maths</title>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#101e30;--line:#263a50;--muted:#a8b8ca;--green:#4de0ae;--blue:#6aa9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#17385a 0,transparent 55%),var(--bg);color:#f4f8ff;font:16px system-ui,Arial,sans-serif}
+.wrap{max-width:920px;margin:auto;padding:22px 16px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;letter-spacing:.5px;font-size:20px}.logo span{color:var(--green)}.status{font-size:12px;color:var(--green);border:1px solid #286b5b;border-radius:99px;padding:7px 11px}
+.hero{text-align:center;padding:52px 8px 28px}.tag{display:inline-block;color:var(--green);background:#12332f;border:1px solid #245a50;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(32px,7vw,54px);line-height:1.08;margin:18px 0 12px}.hero p{color:var(--muted);max-width:620px;margin:auto;line-height:1.7}
+.card{background:linear-gradient(145deg,#12243a,#0d1929);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 55px #0005}
+label{display:block;font-weight:700;margin:0 0 9px}.hint{font-size:12px;color:var(--muted);margin-top:7px}
+textarea{width:100%;min-height:135px;resize:vertical;background:#071321;border:1px solid #30465e;border-radius:13px;color:white;padding:15px;font:inherit;outline:none}
+textarea:focus{border-color:var(--green)}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:15px}
+button,.upload{border:0;border-radius:12px;padding:13px 17px;font-weight:800;font-size:14px;cursor:pointer}
+.primary{background:linear-gradient(90deg,#31c99a,#6de7bc);color:#062019;flex:1}.secondary,.upload{background:#1b3048;color:#eaf3ff;border:1px solid #34516e}
+input[type=file]{display:none}.result{margin-top:18px;display:none;background:#081725;border:1px solid #29435d;border-radius:15px;padding:17px;white-space:pre-wrap;line-height:1.7}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{background:#0d1a2a;border:1px solid var(--line);border-radius:15px;padding:15px}.feature b{display:block;margin:7px 0}.feature small{color:var(--muted);line-height:1.5}
+footer{text-align:center;color:#8295aa;font-size:12px;margin-top:25px}
+@media(max-width:600px){.features{grid-template-columns:1fr}.hero{padding-top:38px}.card{padding:16px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="logo">MATHS <span>AI LK</span> 🤖</div><div class="status">● WEBSITE PREVIEW</div></header>
+<section class="hero"><div class="tag">GRADE 10 • SINHALA MEDIUM</div><h1>ගණිතය දැන්<br><span style="color:var(--green)">ලේසියෙන් ඉගෙනගමු</span></h1><p>ඔබේ ගණිත ප්‍රශ්නය ඇතුළත් කරන්න. පියවරෙන් පියවර විසඳුමක් ලබාගැනීමට MATHS AI LK භාවිත කරන්න.</p></section>
+<section class="card">
+<label for="question">📘 ඔබේ ගණිත ප්‍රශ්නය</label>
+<textarea id="question" placeholder="උදා: 2x + 5 = 15 නම් x හි අගය සොයන්න..."></textarea>
+<div class="row"><label class="upload" for="photo">📷 ප්‍රශ්නයේ Photo එකක් තෝරන්න</label><input id="photo" type="file" accept="image/*"><button class="primary" id="ask">විසඳුම ලබාගන්න →</button></div>
+<div class="hint" id="filehint">සිංහලෙන් ප්‍රශ්නය ටයිප් කරන්න. Photo upload UI preview එකට ඇතුළත් කර ඇත.</div>
+<div class="result" id="result"></div>
+</section>
+<section class="features">
+<div class="feature">📚<b>Grade 10 Maths</b><small>Part I සහ Part II පෙළපොත් අනුව පිළිතුරු සැකසීමට සැලසුම් කර ඇත.</small></div>
+<div class="feature">✍️<b>පියවරෙන් පියවර</b><small>ගණනය කරන ආකාරය පැහැදිලිව පෙන්වන පිළිතුරු.</small></div>
+<div class="feature">📖<b>පාඩම සහ පිටුව</b><small>පොතෙන් තහවුරු කළ හැකි විට අදාළ පාඩම සහ පිටුව පෙන්වීම.</small></div>
+</section>
+<footer>© MATHS AI LK · අධ්‍යාපනික සහායක Preview</footer>
+</main>
+<script>
+const API="https://maths-ai-lk.sasankamaheja862.workers.dev/";
+const q=document.getElementById('question'),r=document.getElementById('result');
+document.getElementById('photo').addEventListener('change',e=>{document.getElementById('filehint').textContent=e.target.files[0]?"තෝරාගත් ගොනුව: "+e.target.files[0].name+" (දැනට image OCR සම්බන්ධ කර නැත)":"සිංහලෙන් ප්‍රශ්නය ටයිප් කරන්න."});
+document.getElementById('ask').addEventListener('click',async()=>{
+ if(!q.value.trim()){r.style.display='block';r.textContent='කරුණාකර ගණිත ප්‍රශ්නයක් ඇතුළත් කරන්න.';return}
+ r.style.display='block';r.textContent='පිළිතුර සොයමින්...';
+ try{
+  const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q.value.trim()})});
+  const data=await res.json();r.textContent=data.answer||data.error||'පිළිතුරක් ලැබුණේ නැහැ.';
+ }catch(e){r.textContent='Backend එකට සම්බන්ධ වීමට නොහැකි වුණා. Worker එකේ Gemini API සහ පොත් සෙවීම තවම සකස් කරමින් පවතී.'}
+});
+</script></body></html>
