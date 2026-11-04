@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATHS AI LK | Grade 10 Sri Lankan AI Math Tutor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome & MathJax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-square-root-variable logo-icon"></i>
+            <span>MATHS AI <span class="highlight">LK</span></span>
+        </div>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-si" class="lang-btn">සිංහල</button>
+            </div>
+            <button id="history-toggle" class="icon-btn" title="History"><i class="fa-solid fa-history"></i></button>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <!-- Sidebar History -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3 data-en="Chat History" data-si="පෙර ප්‍රශ්න">Chat History</h3>
+                <button id="close-sidebar" class="close-btn">&times;</button>
+            </div>
+            <button id="new-chat-btn" class="action-btn-outline">
+                <i class="fa-solid fa-plus"></i> <span data-en="New Conversation" data-si="නව සංවාදයක්">New Conversation</span>
+            </button>
+            <div id="history-list" class="history-list"></div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <h1 data-en="Grade 10 Mathematics AI Tutor" data-si="10 ශ්‍රේණිය ගණිතය AI උපකාරකයා">Grade 10 Mathematics AI Tutor</h1>
+                <p data-en="Aligned with Sri Lankan Part I & Part II Textbooks" data-si="ශ්‍රී ලංකා 10 ශ්‍රේණිය I සහ II කොටස් පෙළපොත් ඇසුරින්">Aligned with Sri Lankan Part I & Part II Textbooks</p>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message intro-card">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="message-content">
+                        <p data-en="👋 Hello! I am your Grade 10 Math AI Assistant. Ask any question from Part I or Part II, or upload a photo of your equation!" data-si="👋 ආයුබෝවන්! මම ඔබගේ 10 ශ්‍රේණිය ගණිතය AI සහායකයා වෙමි. I හෝ II කොටස් වල ඕනෑම ප්‍රශ්නයක් අසන්න, නැතහොත් ප්‍රශ්නයේ ඡායාරූපයක් එක් කරන්න!">👋 Hello! I am your Grade 10 Math AI Assistant. Ask any question from Part I or Part II, or upload a photo of your equation!</p>
+                        <div class="suggestions">
+                            <span class="chip" onclick="useSample('වාර්ගික සමීකරණ විසඳන්නේ කෙසේද?')">වාර්ගික සමීකරණ</span>
+                            <span class="chip" onclick="useSample('Find the volume of a cylinder with radius 7cm and height 10cm.')">Cylinder Volume</span>
+                            <span class="chip" onclick="useSample('සමානන්තර ශ්‍රේඪි සූත්‍රය පැහැදිලි කරන්න.')">සමානන්තර ශ්‍රේඪි</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-wrapper">
+                <div id="image-preview-container" class="image-preview-container hidden">
+                    <img id="image-preview" src="" alt="Preview">
+                    <button id="remove-image" class="remove-img-btn">&times;</button>
+                </div>
+
+                <div class="input-bar">
+                    <label for="image-upload" class="upload-btn" title="Upload Image">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </label>
+
+                    <textarea id="user-input" rows="1" placeholder="Type your math question here... / ඔබේ ගණිත ප්‍රශ්නය මෙහි රයිප් කරන්න..." data-placeholder-en="Type your math question here..." data-placeholder-si="ඔබේ ගණිත ප්‍රශ්නය මෙහි ටයිප් කරන්න..."></textarea>
+
+                    <button id="send-btn" class="send-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <button id="clear-chat" class="clear-btn"><i class="fa-solid fa-trash-can"></i> <span data-en="Clear Chat" data-si="සංවාදය මකන්න">Clear Chat</span></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
